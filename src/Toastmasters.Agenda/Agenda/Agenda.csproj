@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Toastmasters.Agenda.Generator.DocX\Toastmasters.Agenda.Generator.DocX.csproj" />
+    <ProjectReference Include="..\Toastmasters.Agenda\Toastmasters.Agenda.csproj" />
+  </ItemGroup>
+
+</Project>
