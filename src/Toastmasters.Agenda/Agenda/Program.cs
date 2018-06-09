@@ -6,7 +6,7 @@ namespace Agenda
     {
         static void Main(string[] args)
         {
-            string templatePath = @"..\..\..\..\..\..\Templates\Sample Agenda 1.docx";
+            string templatePath = @"..\..\..\..\..\..\Templates\Sample Agenda 3.docx";
             string outputFilePathFormat = @"..\..\..\..\..\..\..\..\..\Documents\Agendas\GeneratedAgenda_{0}.docx";
 
             string outputFilePath = string.Format(outputFilePathFormat, Guid.NewGuid().ToString());
