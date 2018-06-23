@@ -7,6 +7,6 @@ namespace Toastmasters.Agenda.Interfaces
 {
     public interface IAgendaGenerator
     {
-        void CreateAgenda(Entities.Meeting meeting, string destinationPath);
+        System.IO.Stream CreateAgenda(Entities.AgendaConfig config, Entities.Club club, Entities.Meeting meeting);
     }
 }

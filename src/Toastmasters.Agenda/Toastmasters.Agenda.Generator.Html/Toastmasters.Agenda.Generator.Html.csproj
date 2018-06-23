@@ -1,17 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Toastmasters.Agenda.Generator.Html\Toastmasters.Agenda.Generator.Html.csproj" />
     <ProjectReference Include="..\Toastmasters.Agenda\Toastmasters.Agenda.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Media\Toastmasters Banner.jpg">
+    <None Update="Template.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

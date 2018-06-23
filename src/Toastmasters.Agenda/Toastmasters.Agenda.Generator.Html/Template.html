@@ -1,0 +1,296 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Toastmasters Meeting Agenda</title>
+    <style type="text/css">
+        h2 {
+            line-height: 0%;
+            text-align: center;
+        }
+
+        h3 {
+            line-height: 0%;
+            text-align: center;
+        }
+
+        h4 {
+            line-height: 0%;
+            text-align: center;
+        }
+
+        .Master {
+            width: 100%;
+        }
+
+        .Sidebar {
+            width: 23%;
+            vertical-align: top;
+        }
+
+        .Agenda {
+            width: 77%;
+            vertical-align: top;
+        }
+
+        .AgendaItem {
+            font-weight: bold;
+        }
+
+        .AgendaDetails {
+            font-weight: normal;
+            visibility: visible;
+        }
+
+        .SidebarHeading {
+            color: grey;
+        }
+
+        .SidebarSubHeading {
+            font-weight: bold;
+        }
+
+        .AgendaItems {
+            width: 100%;
+        }
+
+        .SpeechTitle {
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        .WordOfTheDay {
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        .InactiveDetails {
+            font-weight: normal;
+            visibility: collapse;
+        }
+
+    </style>
+</head>
+<body>
+    <img alt="Toastmasters International" scale="0" src="data:image/jpg;base64,{BannerImage}" />
+    <table class="Master">
+        <tr>
+            <td class="Sidebar">
+                <p><div class="SidebarHeading">President</div> {PresidentName}</p>
+                <p><div class="SidebarHeading">VP Education</div> {VPEName}</p>
+                <p><div class="SidebarHeading">VP Membership</div> {VPMName}</p>
+                <p><div class="SidebarHeading">VP Public Relations</div> {VPPRName}</p>
+                <p><div class="SidebarHeading">Secretary</div> {SecName}</p>
+                <p><div class="SidebarHeading">Treasurer</div> {TreasName}</p>
+                <p><div class="SidebarHeading">Seargeant-At-Arms</div> {SEAName}</p>
+                <p>{MeetingMessage}</p>
+
+                <p>
+                    <div class="SidebarHeading">{ClubName}</div>
+                    <div class="SidebarSubHeading">Sharepoint Link:</div> <a href="{WebsiteUrl}">{WebsiteAddress}</a>
+                </p>
+                <p><div class="SidebarSubHeading">Email:</div> <a href="mailto:{EmailUrl}">{EmailAddress}</a></p>
+                <p><div class="SidebarSubHeading">Slack:</div> {SlackChannel}</p>
+                <p><div class="SidebarHeading">Toastmasters International</div> <a href="http://www.toastmasters.org">www.toastmasters.org</a></p>
+                <p>
+                    <div class="SidebarSubHeading">Club Mission</div>
+                    {ClubMissionStatement}
+                </p>
+            </td>
+            <td class="Agenda">
+                <h2>{ClubName}</h2>
+                <h3>{ClubNumber}</h3>
+                <h4>{MeetingDate}</h4>
+                <h4>{MeetingStartTime} - {MeetingEndTime}</h4>
+                <table class="AgendaItems">
+                    <tr>
+                        <td class="AgendaItem">{AgendaStartTime}</td>
+                        <td class="AgendaItem">Presiding Officer Calls Meeting to Order</td>
+                        <td>{POName}</td>
+                    </tr>
+                    <tr class="AgendaDetails">
+                        <td></td>
+                        <td>(Please silence your cell phone)</td>
+                        <td></td>
+                    </tr>
+                    <tr class="AgendaDetails">
+                        <td></td>
+                        <td>Welcome Guests and Introduce Toastmaster</td>
+                        <td>{TMName}</td>
+                    </tr>
+
+                    <tr>
+                        <td class="AgendaItem">{ToastmasterTakeoverTime}</td>
+                        <td class="AgendaItem" colspan="2">Toastmaster explains theme "{MeetingTheme}"</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td class="AgendaItem" colspan="2">shares joke-of-the-day and introduces functionaries</td>
+                    </tr>
+                    <tr class="AgendaDetails">
+                        <td></td>
+                        <td>Ah-Counter</td>
+                        <td>{AhCounterName}</td>
+                    </tr>
+                    <tr class="AgendaDetails">
+                        <td></td>
+                        <td>Grammarian (Word of the day: <span class="WordOfTheDay">"{WordOfTheDay}"</span>)</td>
+                        <td>{GrammarianName}</td>
+                    </tr>
+                    <tr class="AgendaDetails">
+                        <td></td>
+                        <td>Timer</td>
+                        <td>{TimerName}</td>
+                    </tr>
+                    <tr class="AgendaDetails">
+                        <td></td>
+                        <td>General Evaluator</td>
+                        <td>{GeneralEvaluatorName}</td>
+                    </tr>
+                    <tr class="AgendaDetails">
+                        <td></td>
+                        <td>Listener</td>
+                        <td>{ListenerName}</td>
+                    </tr>
+
+                    <tr>
+                        <td class="AgendaItem">{Speech1Time}</td>
+                        <td class="AgendaItem">{SpeakerIntroduction}</td>
+                        <td></td>
+                    </tr>
+
+                    <tr class="AgendaDetails">
+                        <td></td>
+                        <td class="SpeechTitle">"{Speech1Title}"</td>
+                        <td>{Speaker1Name}</td>
+                    </tr>
+                    <tr class="AgendaDetails">
+                        <td></td>
+                        <td>{Speech1Type}</td>
+                        <td></td>
+                    </tr>
+                    <tr class="AgendaDetails">
+                        <td></td>
+                        <td>** Time {EvaluationMinutes} minutes for member evaluations after speech **</td>
+                        <td></td>
+                    </tr>
+
+                    <tr class="{Speech2Style}">
+                        <td></td>
+                        <td class="SpeechTitle">"{Speech2Title}"</td>
+                        <td>{Speaker2Name}</td>
+                    </tr>
+                    <tr class="{Speech2Style}">
+                        <td></td>
+                        <td>{Speech2Type}</td>
+                        <td></td>
+                    </tr>
+                    <tr class="{Speech2Style}">
+                        <td></td>
+                        <td>** Time {EvaluationMinutes} minutes for member evaluations after speech **</td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td class="AgendaItem">{TableTopicsTime}</td>
+                        <td class="AgendaItem">Toastmaster Introduces Table Topics Master</td>
+                        <td></td>
+                    </tr>
+                    <tr class="AgendaDetails">
+                        <td></td>
+                        <td>Conduct Table Topics Session (1-2 min ea)</td>
+                        <td>{TableTopicsMaster}</td>
+                    </tr>
+                    <tr class="AgendaDetails">
+                        <td></td>
+                        <td colspan="2">** Vote for best TT Speaker <b>Must Use W.O.D.</b> **</td>
+                    </tr>
+
+                    <tr>
+                        <td class="AgendaItem">{EvaluationTime}</td>
+                        <td class="AgendaItem">{EvaluationIntroduction}</td>
+                        <td></td>
+                    </tr>
+                    <tr class="AgendaDetails">
+                        <td></td>
+                        <td>Evaluating {Speaker1Name}</td>
+                        <td>{Evaluator1Name}</td>
+                    </tr>
+                    <tr class="{Speech2Style}">
+                        <td></td>
+                        <td>Evaluating {Speaker2Name}</td>
+                        <td>{Evaluator2Name}</td>
+                    </tr>
+
+                    <tr>
+                        <td class="AgendaItem">{FunctionaryReportTime}</td>
+                        <td class="AgendaItem">Toastmaster Asks for Functionary Reports (1 min ea)</td>
+                        <td></td>
+                    </tr>
+                    <tr class="AgendaDetails">
+                        <td></td>
+                        <td>Timer (entire report at this time)</td>
+                        <td>{TimerName}</td>
+                    </tr>
+                    <tr class="AgendaDetails">
+                        <td></td>
+                        <td>Grammarian</td>
+                        <td>{GrammarianName}</td>
+                    </tr>
+                    <tr class="AgendaDetails">
+                        <td></td>
+                        <td>Ah-Counter</td>
+                        <td>{AhCounterName}</td>
+                    </tr>
+                    <tr class="AgendaDetails">
+                        <td></td>
+                        <td>General Evaluator</td>
+                        <td>{GeneralEvaluatorName}</td>
+                    </tr>
+
+                    <tr>
+                        <td class="AgendaItem">{ListenerTime}</td>
+                        <td class="AgendaItem">Toastmaster Introduces Listener</td>
+                        <td></td>
+                    </tr>
+                    <tr class="AgendaDetails">
+                        <td></td>
+                        <td>Listener</td>
+                        <td>{ListenerName}</td>
+                    </tr>
+
+                    <tr>
+                        <td class="AgendaItem">{MentorTime}</td>
+                        <td class="AgendaItem">Toastmaster Introduces Mentor Minute</td>
+                        <td></td>
+                    </tr>
+                    <tr class="AgendaDetails">
+                        <td></td>
+                        <td>Mentor</td>
+                        <td>{MentorName}</td>
+                    </tr>
+
+                    <tr>
+                        <td class="AgendaItem">{POReturnTime}</td>
+                        <td colspan="2" class="AgendaItem">Toastmaster Turns Meeting Back to Presiding Officer</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td class="AgendaDetails">Presiding Officer</td>
+                        <td>{POName}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td colspan="2" class="AgendaDetails">Announce Best Table Topics Winner</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td colspan="2" class="AgendaDetails">Club Business/Next Week/Pass evals/Adjourn</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
