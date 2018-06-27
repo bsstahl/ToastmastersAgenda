@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using Toastmasters.Agenda.Entities;
+using Toastmasters.Web.Extensions;
 
 namespace Toastmasters.Web.Models
 {
@@ -69,6 +71,35 @@ namespace Toastmasters.Web.Models
 
         public string Speech1Evaluator { get; set; }
         public string Speech2Evaluator { get; set; }
+
+
+
+        public Agenda.Entities.Meeting AsEntity()
+        {
+            var meeting = new Toastmasters.Agenda.Entities.Meeting();
+            meeting.MeetingStartDateTime = this.MeetingStartTime;
+            meeting.MeetingEndDateTime = this.MeetingStartTime.AddMinutes(this.MeetingLength);
+
+            meeting.PresidingOfficerName = this.PresidingOfficerName;
+            meeting.ToastmasterName = this.ToastmasterName;
+            meeting.Theme = this.MeetingTheme;
+            meeting.WordOfTheDay = this.WordOfTheDay;
+
+            meeting.AhCounterName = this.AhCounterName;
+            meeting.GrammarianName = this.GrammarianName;
+            meeting.TimerName = this.TimerName;
+            meeting.GeneralEvaluatorName = this.GeneralEvaluatorName;
+            meeting.ListenerName = this.ListenerName;
+            meeting.TopicMasterName = this.TopicMasterName;
+            meeting.MentorName = this.MentorName;
+
+            meeting.Speech1 = (default(Speech)).Create(this.Speaker1Name, this.Speech1Title, this.Speech1Evaluator, this.Speech1Type);
+            if (this.Speech2Type > 0)
+                meeting.Speech2 = (default(Speech)).Create(this.Speaker2Name, this.Speech2Title, this.Speech2Evaluator, this.Speech2Type);
+
+            return meeting;
+        }
+
 
     }
 }

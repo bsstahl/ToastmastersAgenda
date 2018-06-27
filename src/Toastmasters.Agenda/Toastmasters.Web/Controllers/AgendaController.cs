@@ -81,57 +81,13 @@ namespace Toastmasters.Web.Controllers
 
             #endregion
 
-            var meeting = new Toastmasters.Agenda.Entities.Meeting();
-            meeting.MeetingStartDateTime = agenda.MeetingStartTime;
-            meeting.MeetingEndDateTime = agenda.MeetingStartTime.AddMinutes(agenda.MeetingLength);
-
-            meeting.PresidingOfficerName = agenda.PresidingOfficerName;
-            meeting.ToastmasterName = agenda.ToastmasterName;
-            meeting.Theme = agenda.MeetingTheme;
-            meeting.WordOfTheDay = agenda.WordOfTheDay;
-
-            meeting.AhCounterName = agenda.AhCounterName;
-            meeting.GrammarianName = agenda.GrammarianName;
-            meeting.TimerName = agenda.TimerName;
-            meeting.GeneralEvaluatorName = agenda.GeneralEvaluatorName;
-            meeting.ListenerName = agenda.ListenerName;
-            meeting.TopicMasterName = agenda.TopicMasterName;
-            meeting.MentorName = agenda.MentorName;
-
-            meeting.Speech1 = GetSpeech(agenda.Speaker1Name, agenda.Speech1Title, agenda.Speech1Evaluator, agenda.Speech1Type);
-            if (agenda.Speech2Type > 0)
-                meeting.Speech2 = GetSpeech(agenda.Speaker2Name, agenda.Speech2Title, agenda.Speech2Evaluator, agenda.Speech2Type);
-
+            Agenda.Entities.Meeting meeting = agenda.AsEntity();
             var gen = new Toastmasters.Agenda.Generator.Html.Engine();
             var result = gen.CreateAgenda(config, club, meeting);
 
             return new FileStreamResult(result, "text/html");
         }
 
-        private Agenda.Entities.Speech GetSpeech(string name, string title, string evaluator, int speechType)
-        {
-            var result = new Toastmasters.Agenda.Entities.Speech();
-            result.SpeakerName = name;
-            result.Title = title;
-            result.EvaluatorName = evaluator;
-
-            if (speechType == 1)
-            {
-                result.SpeechType = "Icebreaker Speech (4 to 6 Minutes)";
-                result.MinLengthMinutes = 4;
-                result.MaxLengthMinutes = 6;
-            }
-            else if (speechType == 2)
-            {
-                result.SpeechType = "Prepared Speech (5 to 7 Minutes)";
-                result.MinLengthMinutes = 5;
-                result.MaxLengthMinutes = 7;
-            }
-            else
-                throw new ArgumentOutOfRangeException(nameof(speechType));
-
-            return result;
-        }
 
     }
 }
