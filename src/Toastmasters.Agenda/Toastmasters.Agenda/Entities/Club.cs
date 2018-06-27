@@ -9,14 +9,6 @@ namespace Toastmasters.Agenda.Entities
         public string Name { get; set; }
         public string Number { get; set; }
 
-        public string PresidentName { get; set; }
-        public string VPEducationName { get; set; }
-        public string VPMembershipName { get; set; }
-        public string VPPublicRelationsName { get; set; }
-        public string SecretaryName { get; set; }
-        public string TreasurerName { get; set; }
-        public string SeargeantAtArmsName { get; set; }
-
         public string MeetingMessage { get; set; }
 
         public string WebsiteUrl { get; set; }
@@ -24,6 +16,8 @@ namespace Toastmasters.Agenda.Entities
         public string SlackChannel { get; set; }
 
         public string MissionStatement { get; set; }
+
+        public Officers Officers { get; set; }
 
     }
 }

@@ -36,13 +36,13 @@ namespace Agenda
             club.Name = "Club Name Here";
             club.Number = "1234567";
 
-            club.PresidentName = "President's Name";
-            club.VPEducationName = "VPE's Name";
-            club.VPMembershipName = "VPM's Name";
-            club.VPPublicRelationsName = "VPPR's Name";
-            club.SecretaryName = "Secretary's Name";
-            club.TreasurerName = "Treasurer's Name";
-            club.SeargeantAtArmsName = "SAA's Name";
+            club.Officers.PresidentName = "President's Name";
+            club.Officers.VPEducationName = "VPE's Name";
+            club.Officers.VPMembershipName = "VPM's Name";
+            club.Officers.VPPublicRelationsName = "VPPR's Name";
+            club.Officers.SecretaryName = "Secretary's Name";
+            club.Officers.TreasurerName = "Treasurer's Name";
+            club.Officers.SeargeantAtArmsName = "SAA's Name";
 
             club.WebsiteUrl = "https://www.ourcluburl.com";
             club.EmailAddress = "email@ourcluburl.com";

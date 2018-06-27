@@ -1,0 +1,102 @@
+﻿@model AgendaViewModel
+@{
+    ViewData["Title"] = "Create Toastmasters Meeting Agenda";
+}
+
+<h2>@ViewData["Title"]</h2>
+<h3>@ViewData["Message"]</h3>
+
+<form method="post" action="Agenda/Create">
+    <div class="form-group">
+        <h3>Meeting Date/Time</h3>
+
+        <label for="MeetingStartTime">Meeting Start Date/Time (local time)</label>
+        <input name="MeetingStartTime" value="@Model.MeetingStartTime.ToString("s")" type="datetime-local" class="form-control" placeholder="Meeting start date/time (local time)" />
+
+        <label for="MeetingLength">Meeting Length (min)</label>
+        <input name="MeetingLength" value="@Model.MeetingLength" type="number" class="form-control" placeholder="60" />
+
+        <h3>Meeting Functionaries</h3>
+        <label for="PresidingOfficerName">Presiding Officer</label>
+        <select name="PresidingOfficerName" value="@Model.PresidingOfficerName" class="form-control">
+            <option value="">(Presiding Officer)</option>
+            @foreach (var officer in Model.OfficerNames)
+            {
+                <option>@officer</option>
+            }
+        </select>
+
+        <label for="ToastmasterName">Toastmaster</label>
+        <input name="ToastmasterName" value="@Model.ToastmasterName" type="text" class="form-control" placeholder="Toastmaster" />
+
+        <label for="AhCounterName">Ah-Counter</label>
+        <input name="AhCounterName" value="@Model.AhCounterName" type="text" class="form-control" placeholder="Ah Counter" />
+
+        <label for="GrammarianName">Grammarian</label>
+        <input name="GrammarianName" value="@Model.GrammarianName" type="text" class="form-control" placeholder="Grammarian" />
+
+        <label for="TimerName">Timer</label>
+        <input name="TimerName" value="@Model.TimerName" type="text" class="form-control" placeholder="Timer" />
+
+        <label for="GeneralEvaluatorName">General Evaluator</label>
+        <input name="GeneralEvaluatorName" value="@Model.GeneralEvaluatorName" type="text" class="form-control" placeholder="General Evaluator" />
+
+        <label for="ListenerName">Listener</label>
+        <input name="ListenerName" value="@Model.ListenerName" type="text" class="form-control" placeholder="Listener" />
+
+        <label for="TopicMasterName">Topic Master</label>
+        <input name="TopicMasterName" value="@Model.TopicMasterName" type="text" class="form-control" placeholder="Topic Master" />
+
+        <label for="MentorName">Mentor</label>
+        <input name="MentorName" value="@Model.MentorName" type="text" class="form-control" placeholder="Mentor" />
+
+        <h3>Thematic Elements</h3>
+
+        <label for="MeetingTheme">Meeting Theme</label>
+        <input name="MeetingTheme" value="@Model.MeetingTheme" type="text" class="form-control" placeholder="Meeting Theme" />
+
+        <label for="WordOfTheDay">Word of the Day</label>
+        <input name="WordOfTheDay" value="@Model.WordOfTheDay" type="text" class="form-control" placeholder="Word of the Day" />
+
+        <h3>Speeches</h3>
+
+        <h4>Speech 1</h4>
+
+        <label for="Speech1Type">Speech Type</label>
+        <select name="Speech1Type" value="@Model.Speech1Type" class="form-control">
+            <option value="0">(Speech Type)</option>
+            <option value="1">Icebreaker (4-6 Minutes)</option>
+            <option value="2">Prepared Speech (5-7 Minutes)</option>
+        </select>
+
+        <label for="Speaker1Name">Speaker Name</label>
+        <input name="Speaker1Name" value="@Model.Speaker1Name" type="text" class="form-control" placeholder="Speaker Name" />
+
+        <label for="Speech1Title">Speaker Name</label>
+        <input name="Speech1Title" value="@Model.Speech1Title" type="text" class="form-control" placeholder="Speech Title" />
+
+        <label for="Speech1Evaluator">Speech Evaluator</label>
+        <input name="Speech1Evaluator" value="@Model.Speech1Evaluator" type="text" class="form-control" placeholder="Speech Evaluator" />
+
+        <h4>Speech 2</h4>
+
+        <label for="Speech2Type">Speech Type</label>
+        <select name="Speech2Type" value="@Model.Speech2Type" class="form-control">
+            <option value="0">(None)</option>
+            <option value="1">Icebreaker (4-6 Minutes)</option>
+            <option value="2">Prepared Speech (5-7 Minutes)</option>
+        </select>
+
+        <label for="Speaker2Name">Speaker Name</label>
+        <input name="Speaker2Name" value="@Model.Speaker2Name" type="text" class="form-control" placeholder="Speaker Name" />
+
+        <label for="Speech2Title">Speaker Name</label>
+        <input name="Speech2Title" value="@Model.Speech2Title" type="text" class="form-control" placeholder="Speech Title" />
+
+        <label for="Speech2Evaluator">Speech Evaluator</label>
+        <input name="Speech2Evaluator" value="@Model.Speech2Evaluator" type="text" class="form-control" placeholder="Speech Evaluator" />
+
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create Agenda</button>
+</form>
