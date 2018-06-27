@@ -5,6 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="..\Agenda\Media\Template.html" Link="Media\Template.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Agenda\Media\Toastmasters Banner.jpg" Link="Media\Toastmasters Banner.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.8" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.3" />
   </ItemGroup>
@@ -17,15 +26,6 @@
     <ProjectReference Include="..\Agenda\Agenda.csproj" />
     <ProjectReference Include="..\Toastmasters.Agenda.Generator.Html\Toastmasters.Agenda.Generator.Html.csproj" />
     <ProjectReference Include="..\Toastmasters.Agenda\Toastmasters.Agenda.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="Media\Toastmasters Banner.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Template.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
 
 </Project>

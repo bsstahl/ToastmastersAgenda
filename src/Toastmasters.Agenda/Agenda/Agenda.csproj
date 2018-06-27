@@ -11,6 +11,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Media\Template.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Media\Toastmasters Banner.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

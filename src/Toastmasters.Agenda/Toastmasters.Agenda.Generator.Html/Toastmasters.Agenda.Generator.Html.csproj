@@ -8,10 +8,4 @@
     <ProjectReference Include="..\Toastmasters.Agenda\Toastmasters.Agenda.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Update="Template.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
 </Project>
