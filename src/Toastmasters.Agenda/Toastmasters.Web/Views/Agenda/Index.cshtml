@@ -48,7 +48,7 @@
         <input name="TopicMasterName" value="@Model.TopicMasterName" type="text" class="form-control" placeholder="Topic Master" />
 
         <label for="MentorName">Mentor</label>
-        <input name="MentorName" value="@Model.MentorName" type="text" class="form-control" placeholder="Mentor" />
+        <input name="MentorName" value="@Model.MentorName" type="text" class="form-control" placeholder="Mentor (leave blank to skip)" />
 
         <h3>Thematic Elements</h3>
 
@@ -64,9 +64,9 @@
 
         <label for="Speech1Type">Speech Type</label>
         <select name="Speech1Type" value="@Model.Speech1Type" class="form-control">
-            <option value="0">(Speech Type)</option>
             <option value="1">Icebreaker (4-6 Minutes)</option>
-            <option value="2">Prepared Speech (5-7 Minutes)</option>
+            <option default value="2">Prepared Speech (5-7 Minutes)</option>
+            <option value="3">Extended Speech (8-10 Minutes)</option>
         </select>
 
         <label for="Speaker1Name">Speaker Name</label>
@@ -85,6 +85,7 @@
             <option value="0">(None)</option>
             <option value="1">Icebreaker (4-6 Minutes)</option>
             <option value="2">Prepared Speech (5-7 Minutes)</option>
+            <option value="3">Extended Speech (8-10 Minutes)</option>
         </select>
 
         <label for="Speaker2Name">Speaker Name</label>

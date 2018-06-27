@@ -27,6 +27,12 @@ namespace Toastmasters.Web.Extensions
                 result.MinLengthMinutes = 5;
                 result.MaxLengthMinutes = 7;
             }
+            else if (speechType == 3)
+            {
+                result.SpeechType = "Extended Speech (8 to 10 Minutes)";
+                result.MinLengthMinutes = 8;
+                result.MaxLengthMinutes = 10;
+            }
             else
                 throw new ArgumentOutOfRangeException(nameof(speechType));
 
