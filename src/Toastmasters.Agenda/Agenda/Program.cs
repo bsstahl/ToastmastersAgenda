@@ -36,6 +36,7 @@ namespace Agenda
             club.Name = "Club Name Here";
             club.Number = "1234567";
 
+            club.Officers = new Toastmasters.Agenda.Entities.Officers();
             club.Officers.PresidentName = "President's Name";
             club.Officers.VPEducationName = "VPE's Name";
             club.Officers.VPMembershipName = "VPM's Name";

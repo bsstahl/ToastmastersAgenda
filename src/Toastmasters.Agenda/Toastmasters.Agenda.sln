@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Toastmasters.Agenda", "Toas
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Agenda", "Agenda\Agenda.csproj", "{6BCAD3FD-5FC9-4A2E-9E17-F159790FAF18}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toastmasters.Agenda.Generator.Html", "Toastmasters.Agenda.Generator.Html\Toastmasters.Agenda.Generator.Html.csproj", "{CB517414-5EAA-44F5-A613-6E8205DC5075}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Toastmasters.Agenda.Generator.Html", "Toastmasters.Agenda.Generator.Html\Toastmasters.Agenda.Generator.Html.csproj", "{CB517414-5EAA-44F5-A613-6E8205DC5075}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toastmasters.Web", "Toastmasters.Web\Toastmasters.Web.csproj", "{834C7D55-CC99-460A-BEDD-3902769AD17C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Toastmasters.Web", "Toastmasters.Web\Toastmasters.Web.csproj", "{834C7D55-CC99-460A-BEDD-3902769AD17C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateConfig", "CreateConfig\CreateConfig.csproj", "{02844FCB-3DA3-4F5D-A8EB-DCF2E60904EF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{834C7D55-CC99-460A-BEDD-3902769AD17C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{834C7D55-CC99-460A-BEDD-3902769AD17C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{834C7D55-CC99-460A-BEDD-3902769AD17C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02844FCB-3DA3-4F5D-A8EB-DCF2E60904EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02844FCB-3DA3-4F5D-A8EB-DCF2E60904EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02844FCB-3DA3-4F5D-A8EB-DCF2E60904EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02844FCB-3DA3-4F5D-A8EB-DCF2E60904EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
