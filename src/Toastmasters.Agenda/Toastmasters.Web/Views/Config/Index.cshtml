@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Configuration";
+}
+
+<h2>Configuration</h2>
+<h4>Store Config in Browser</h4>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Create">
+            <div class="form-group">
+                <div><textarea name="config" cols="60" rows="10"></textarea></div>
+                <div><input type="submit" value="Store" class="btn btn-default" /></div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Agenda/Index">Back to Agenda</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
