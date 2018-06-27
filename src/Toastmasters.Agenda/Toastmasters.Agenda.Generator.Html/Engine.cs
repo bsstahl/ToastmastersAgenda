@@ -19,6 +19,18 @@ namespace Toastmasters.Agenda.Generator.Html
             var banner = File.ReadAllBytes(@".\media\Toastmasters Banner.jpg");
             var encodedBanner = System.Convert.ToBase64String(banner);
 
+            bool useMentorTime = !string.IsNullOrWhiteSpace(meeting.MentorName);
+            string mentorItemStyle = "AgendaItem";
+            string mentorDetailStyle = "AgendaDetails";
+            int mentorTimeToUse = config.MentorMinutes;
+            if (!useMentorTime)
+            {
+                mentorTimeToUse = 0;
+                mentorItemStyle = "InactiveDetails";
+                mentorDetailStyle = "InactiveDetails";
+            }
+
+
             var twoSpeeches = (meeting.Speech2 != null);
             string speakerIntroduction = "Toastmaster Introduces Speaker";
             string evaluationIntroduction = "Toastmaster Introduces Evaluator (2-3 minutes)";
@@ -39,7 +51,7 @@ namespace Toastmasters.Agenda.Generator.Html
             }
 
             int backendMinutes = config.MinClubBusinessMinutes +
-                config.MentorMinutes + config.ListenerMinutes +
+                mentorTimeToUse + config.ListenerMinutes +
                 config.FunctionaryReportMinutes + evaluationMinutes;
 
             DateTime start = meeting.MeetingStartDateTime;
@@ -56,7 +68,7 @@ namespace Toastmasters.Agenda.Generator.Html
             DateTime funcReports = evaluations.AddMinutes(evaluationMinutes);
             DateTime listener = funcReports.AddMinutes(config.FunctionaryReportMinutes);
             DateTime mentor = listener.AddMinutes(config.ListenerMinutes);
-            DateTime poReturn = mentor.AddMinutes(config.MentorMinutes);
+            DateTime poReturn = mentor.AddMinutes(mentorTimeToUse);
 
             string meetingDate = start.ToString(config.MeetingDateFormat);
             string meetingStartTime = start.ToString(config.MeetingTimeFormat);
@@ -121,6 +133,8 @@ namespace Toastmasters.Agenda.Generator.Html
                 .ReplaceField("{Evaluator2Name}", evaluator2Name)
                 .ReplaceField("{FunctionaryReportTime}", funcReportTime)
                 .ReplaceField("{ListenerTime}", listenerTime)
+                .ReplaceField("{MentorItemStyle}", mentorItemStyle)
+                .ReplaceField("{MentorDetailStyle}", mentorDetailStyle)
                 .ReplaceField("{MentorTime}", mentorTime)
                 .ReplaceField("{MentorName}", meeting.MentorName)
                 .ReplaceField("{POReturnTime}", poReturnTime);
