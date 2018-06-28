@@ -14,9 +14,11 @@ namespace Toastmasters.Agenda.Generator.Html
             string speech2SpeechType = string.Empty;
             string evaluator2Name = string.Empty;
 
-            var template = File.ReadAllText(@".\Media\Template.html");
+            string templatePath = $".{Path.DirectorySeparatorChar}Media{Path.DirectorySeparatorChar}Template.html";
+            var template = File.ReadAllText(templatePath);
 
-            var banner = File.ReadAllBytes(@".\Media\Toastmasters Banner.jpg");
+            string bannerPath = $".{Path.DirectorySeparatorChar}Media{Path.DirectorySeparatorChar}Toastmasters Banner.jpg";
+            var banner = File.ReadAllBytes(bannerPath);
             var encodedBanner = System.Convert.ToBase64String(banner);
 
             bool useMentorTime = !string.IsNullOrWhiteSpace(meeting.MentorName);
