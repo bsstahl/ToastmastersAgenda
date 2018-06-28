@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Toastmasters.Agenda.Entities;
 
 namespace Toastmasters.Web.Extensions
 {
@@ -17,6 +18,11 @@ namespace Toastmasters.Web.Extensions
         {
             var base64Bytes = System.Convert.FromBase64String(base64data);
             return System.Text.Encoding.UTF8.GetString(base64Bytes);
+        }
+
+        public static Config AsConfig(this string jsonConfig)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<Config>(jsonConfig);
         }
     }
 }

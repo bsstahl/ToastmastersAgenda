@@ -6,6 +6,12 @@ namespace Toastmasters.Agenda.Entities
 {
     public class Officers
     {
+        public Officers(bool loadDefaults = false)
+        {
+            if (loadDefaults)
+                LoadDefaults();
+        }
+
         public string PresidentName { get; set; }
         public string VPEducationName { get; set; }
         public string VPMembershipName { get; set; }
@@ -14,6 +20,17 @@ namespace Toastmasters.Agenda.Entities
         public string TreasurerName { get; set; }
         public string SeargeantAtArmsName { get; set; }
 
+
+        private void LoadDefaults()
+        {
+            this.PresidentName = "Club President";
+            this.VPEducationName = "Club VP Education";
+            this.VPMembershipName = "Club VP Membership";
+            this.VPPublicRelationsName = "Club VP PR";
+            this.SecretaryName = "Club Secretary";
+            this.TreasurerName = "Club Treasurer";
+            this.SeargeantAtArmsName = "Sergeant-At-Arms";
+        }
 
         public IEnumerable<String> AsEnumerable()
         {

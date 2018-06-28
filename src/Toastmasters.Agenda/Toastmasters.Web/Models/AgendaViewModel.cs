@@ -12,11 +12,11 @@ namespace Toastmasters.Web.Models
     {
         public AgendaViewModel() { }
 
-        public AgendaViewModel(AgendaDefaultsModel defaults)
+        public AgendaViewModel(AgendaConfig agendaConfig, Club clubConfig)
         {
-            this.MeetingStartTime = defaults.MeetingStartDateTime();
-            this.MeetingLength = defaults.MeetingLengthMinutes;
-            this.OfficerNames = defaults.OfficerNames;
+            this.OfficerNames = clubConfig.Officers.AsEnumerable();
+            this.MeetingStartTime = MeetingStartDateTime(clubConfig.MeetingDayOfWeek, clubConfig.MeetingStartTime);
+            this.MeetingLength = clubConfig.MeetingLengthMinutes;
         }
 
         public IEnumerable<string> OfficerNames { get; set; }
@@ -100,6 +100,16 @@ namespace Toastmasters.Web.Models
             return meeting;
         }
 
+        private static DateTime MeetingStartDateTime(DayOfWeek meetingDayOfWeek, Single meetingStartTime)
+        {
+            // Using the MeetingDayOfWeek and MeetingStartTime, calculate
+            // the next meeting date and time to use in the view
+            int dowDelta = (Int32)meetingDayOfWeek - (Int32)DateTime.Now.DayOfWeek;
+            if (dowDelta < 0)
+                dowDelta = 7 + dowDelta;
+
+            return DateTime.Now.Date.AddDays(dowDelta).AddHours(meetingStartTime);
+        }
 
     }
 }

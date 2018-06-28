@@ -37,7 +37,7 @@ namespace Toastmasters.Web.Controllers
         // Removes the cookie from the browser
         public ActionResult Delete()
         {
-            return View();
+            return View(); // TODO: Implement
         }
 
     }

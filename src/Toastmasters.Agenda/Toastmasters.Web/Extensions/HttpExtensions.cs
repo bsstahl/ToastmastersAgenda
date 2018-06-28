@@ -19,8 +19,11 @@ namespace Toastmasters.Web.Extensions
 
         public static string GetToastmastersCookie(this HttpRequest request)
         {
-            var base64 = request.Cookies["ToastmastersConfig"];
-            return base64.FromBase64();
+            var base64 = request.Cookies[_cookieName];
+            string result = base64;
+            if (!string.IsNullOrEmpty(base64))
+                result = base64.FromBase64();
+            return result;
         }
     }
 }
