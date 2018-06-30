@@ -141,7 +141,7 @@ namespace Toastmasters.Agenda.Generator.Html
                 .ReplaceField("{FunctionaryReportTime}", funcReportTime)
                 .ReplaceField("{ListenerTime}", listenerTime)
                 .ReplaceField("{MentorItemStyle}", mentorItemStyle)
-                .ReplaceField("{MentorDetailStyle}", mentorDetailStyle)
+                .ReplaceField("{MentorDetailsStyle}", mentorDetailStyle)
                 .ReplaceField("{MentorTime}", mentorTime)
                 .ReplaceField("{MentorName}", meeting.MentorName)
                 .ReplaceField("{POReturnTime}", poReturnTime);

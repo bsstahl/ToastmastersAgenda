@@ -22,5 +22,14 @@
     <ProjectReference Include="..\Toastmasters.Agenda.Generator.Html\Toastmasters.Agenda.Generator.Html.csproj" />
     <ProjectReference Include="..\Toastmasters.Agenda\Toastmasters.Agenda.csproj" />
   </ItemGroup>
+  
+  <ItemGroup>
+    <None Update="Media\Template.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Media\Toastmasters Banner.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 
 </Project>
