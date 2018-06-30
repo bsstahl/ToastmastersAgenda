@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using Toastmasters.Agenda.Extensions;
 
 namespace Agenda
@@ -85,7 +86,14 @@ namespace Agenda
             meeting.Speech2.MaxLengthMinutes = 6;
             meeting.Speech2.EvaluatorName = "Evaluator2's Name";
 
-            var gen = new Toastmasters.Agenda.Generator.Html.Engine();
+            string templatePath = $".{Path.DirectorySeparatorChar}Media{Path.DirectorySeparatorChar}Template.html";
+            var template = File.ReadAllText(templatePath);
+
+            string bannerPath = $".{Path.DirectorySeparatorChar}Media{Path.DirectorySeparatorChar}Toastmasters Banner.jpg";
+            var banner = File.ReadAllBytes(bannerPath);
+            var encodedBanner = System.Convert.ToBase64String(banner);
+
+            var gen = new Toastmasters.Agenda.Generator.Html.Engine(template, encodedBanner, "image/jpg");
             var result = gen.CreateAgenda(config, club, meeting);
             result.SaveToFile(outputFilePath);
         }

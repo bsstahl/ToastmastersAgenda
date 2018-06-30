@@ -15,7 +15,7 @@ namespace Toastmasters.Agenda.Generator.Html
         {
             // Adds Zero-Length Spaces (&#8203;) after slashes or Underscores
             // in Addresses to allow them to line-break at that point
-            string address = replacementTarget
+            string address = replacementTarget?
                 .Replace("/", "/&#8203;")
                 .Replace("_", "_&#8203;");
 

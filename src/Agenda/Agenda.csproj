@@ -6,6 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="..\Toastmasters.Web\Media\Template.html" Link="Media\Template.html" />
+    <Content Include="..\Toastmasters.Web\Media\Toastmasters Banner.jpg" Link="Media\Toastmasters Banner.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Toastmasters.Agenda.Generator.Html\Toastmasters.Agenda.Generator.Html.csproj" />
     <ProjectReference Include="..\Toastmasters.Agenda\Toastmasters.Agenda.csproj" />
   </ItemGroup>

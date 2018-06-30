@@ -30,8 +30,16 @@ namespace Toastmasters.Web.Controllers
         public ActionResult Create(AgendaViewModel agenda)
         {
             LoadConfiguration();
+
             Agenda.Entities.Meeting meeting = agenda.AsEntity();
-            var gen = new Toastmasters.Agenda.Generator.Html.Engine();
+            string templatePath = $".{System.IO.Path.DirectorySeparatorChar}Media{System.IO.Path.DirectorySeparatorChar}Template.html";
+            var template = System.IO.File.ReadAllText(templatePath);
+
+            string bannerPath = $".{System.IO.Path.DirectorySeparatorChar}Media{System.IO.Path.DirectorySeparatorChar}Toastmasters Banner.jpg";
+            var banner = System.IO.File.ReadAllBytes(bannerPath);
+            var encodedBanner = System.Convert.ToBase64String(banner);
+
+            var gen = new Toastmasters.Agenda.Generator.Html.Engine(template, encodedBanner, "image/jpg");
             var result = gen.CreateAgenda(_agendaConfig, _clubConfig, meeting);
             return new FileStreamResult(result, "text/html");
         }

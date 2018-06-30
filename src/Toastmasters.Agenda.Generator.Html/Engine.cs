@@ -7,19 +7,23 @@ namespace Toastmasters.Agenda.Generator.Html
 {
     public class Engine : Interfaces.IAgendaGenerator
     {
+        string _htmlTemplate;
+        string _bannerImage;
+        string _bannerContentType;
+
+        public Engine(string htmlTemplate, string bannerImage, string bannerContentType)
+        {
+            _htmlTemplate = htmlTemplate;
+            _bannerImage = bannerImage;
+            _bannerContentType = bannerContentType;
+        }
+
         public System.IO.Stream CreateAgenda(AgendaConfig config, Club club, Meeting meeting)
         {
             string speech2Title = string.Empty;
             string speech2SpeakerName = string.Empty;
             string speech2SpeechType = string.Empty;
             string evaluator2Name = string.Empty;
-
-            string templatePath = $".{Path.DirectorySeparatorChar}Media{Path.DirectorySeparatorChar}Template.html";
-            var template = File.ReadAllText(templatePath);
-
-            string bannerPath = $".{Path.DirectorySeparatorChar}Media{Path.DirectorySeparatorChar}Toastmasters Banner.jpg";
-            var banner = File.ReadAllBytes(bannerPath);
-            var encodedBanner = System.Convert.ToBase64String(banner);
 
             bool useMentorTime = !string.IsNullOrWhiteSpace(meeting.MentorName);
             string mentorItemStyle = "AgendaItem";
@@ -85,8 +89,9 @@ namespace Toastmasters.Agenda.Generator.Html
             string mentorTime = mentor.ToString(config.AgendaTimeFormat);
             string poReturnTime = poReturn.ToString(config.AgendaTimeFormat);
 
-            var agenda = template
-                .ReplaceField("{BannerImage}", encodedBanner)
+            var agenda = _htmlTemplate
+                .ReplaceField("{BannerImage}", _bannerImage)
+                .ReplaceField("{BannerContentType}", _bannerContentType)
                 .ReplaceField("{ClubName}", club.Name)
                 .ReplaceField("{PresidentName}", club.Officers.PresidentName)
                 .ReplaceField("{VPEName}", club.Officers.VPEducationName)
