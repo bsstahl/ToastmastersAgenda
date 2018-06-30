@@ -11,8 +11,11 @@ namespace Toastmasters.Agenda.Generator.Html.Test
         public void ReplaceTheStyleOfTheMentorItemIfMentorIsNotSupplied()
         {
             string tag = string.Empty.GetRandom();
-            string expected = $"{string.Empty.GetRandom()}<{tag} class=\"InactiveDetails\">mentor<{tag}/>{string.Empty.GetRandom()}";
-            string template = $"{string.Empty.GetRandom()}<{tag} class=\"{{MentorDetailsStyle}}\">mentor<{tag}/>{string.Empty.GetRandom()}";
+            string content1 = string.Empty.GetRandom();
+            string content2 = string.Empty.GetRandom();
+
+            string expected = $"{content1}<{tag} class=\"InactiveDetails\">mentor<{tag}/>{content2}";
+            string template = $"{content1}<{tag} class=\"{{MentorDetailsStyle}}\">mentor<{tag}/>{content2}";
 
             AgendaConfig config = new Builders.AgendaConfigBuilder().Build();
             Club club = new Builders.ClubBuilder().Build();
