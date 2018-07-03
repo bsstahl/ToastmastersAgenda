@@ -19,6 +19,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tst", "tst", "{F7EC2700-3B9
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toastmasters.Agenda.Generator.Html.Test", "tst\Toastmasters.Agenda.Generator.Html.Test\Toastmasters.Agenda.Generator.Html.Test.csproj", "{C5FD97F2-440A-4E5B-8EF1-1DA61733C70E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E1A0DA9B-DB75-4A5C-9861-F53CE6358BDE}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
