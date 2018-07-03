@@ -19,7 +19,6 @@
         <h3>Meeting Functionaries</h3>
         <label for="PresidingOfficerName">Presiding Officer</label>
         <select name="PresidingOfficerName" value="@Model.PresidingOfficerName" class="form-control">
-            <option value="">(Presiding Officer)</option>
             @foreach (var officer in Model.OfficerNames)
             {
                 <option>@officer</option>
