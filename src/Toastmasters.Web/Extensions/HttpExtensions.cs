@@ -12,9 +12,12 @@ namespace Toastmasters.Web.Extensions
 
         public static void AddToastmastersCookie(this HttpResponse response, string json)
         {
-            var base64 = json.ToBase64();
-            var cookie = new CookieOptions() { Expires = DateTime.Now.AddDays(3650) };
-            response.Cookies.Append(_cookieName, base64, cookie);
+            if (!response.HasStarted)
+            {
+                var base64 = json.ToBase64();
+                var cookie = new CookieOptions() { Expires = DateTime.Now.AddDays(3650) };
+                response.Cookies.Append(_cookieName, base64, cookie);
+            }
         }
 
         public static void AddToastmastersCookie(this HttpRequest request, string json)
