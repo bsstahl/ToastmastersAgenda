@@ -14,6 +14,12 @@ namespace Toastmasters.Web.Models
 
         public AgendaViewModel(AgendaConfig agendaConfig, Club clubConfig)
         {
+            if (agendaConfig == null)
+                throw new ArgumentNullException(nameof(agendaConfig));
+
+            if (clubConfig == null)
+                throw new ArgumentNullException(nameof(clubConfig));
+
             this.OfficerNames = clubConfig.Officers.AsEnumerable();
             this.MeetingStartTime = MeetingStartDateTime(clubConfig.MeetingDayOfWeek, clubConfig.MeetingStartTime);
             this.MeetingLength = clubConfig.MeetingLengthMinutes;

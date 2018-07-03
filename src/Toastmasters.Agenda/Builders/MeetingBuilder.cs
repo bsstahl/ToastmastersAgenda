@@ -12,7 +12,7 @@ namespace Toastmasters.Agenda.Builders
             this.Speech1 = new Entities.Speech();
         }
 
-        public MeetingBuilder MentorName(string mentorName)
+        public new MeetingBuilder MentorName(string mentorName)
         {
             base.MentorName = mentorName;
             return this;

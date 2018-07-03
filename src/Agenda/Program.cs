@@ -26,7 +26,7 @@ namespace Agenda
             config.MentorMinutes = 3;
 
             config.MinClubBusinessMinutes = 5;
-            config.MinTableTopicMinutes = 5;
+            config.MinTableTopicsMinutes = 5;
             config.MaxTableTopicsMinutes = 15;
 
             #endregion

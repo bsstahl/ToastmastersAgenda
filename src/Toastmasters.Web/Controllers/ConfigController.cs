@@ -11,8 +11,9 @@ namespace Toastmasters.Web.Controllers
     public class ConfigController : Controller
     {
         // GET: Config
-        public ActionResult Index()
+        public ActionResult Index(string errorMessage = "")
         {
+            ViewData["ErrorMessage"] = errorMessage;
             return View();
         }
 
@@ -24,8 +25,17 @@ namespace Toastmasters.Web.Controllers
             try
             {
                 // TODO: Save cookie to browser
-                this.Response.AddToastmastersCookie(config);
-                return RedirectToAction("Index", "Agenda");
+                var (parseResult, errorMessage) = config.TryParseConfig();
+                if (parseResult)
+                {
+                    this.Response.AddToastmastersCookie(config);
+                    return RedirectToAction("Index", "Agenda");
+                }
+                else
+                {
+                    // Handle parse error on config
+                    return RedirectToAction("Index", new { errorMessage = errorMessage });
+                }
             }
             catch
             {
@@ -35,6 +45,7 @@ namespace Toastmasters.Web.Controllers
 
         // GET: Config/Delete
         // Removes the cookie from the browser
+        // Is this really the right thing? Should it be a return to default? Should it even exist?
         public ActionResult Delete()
         {
             return View(); // TODO: Implement

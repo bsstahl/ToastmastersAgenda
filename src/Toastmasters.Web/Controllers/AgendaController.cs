@@ -48,19 +48,22 @@ namespace Toastmasters.Web.Controllers
         {
             // If a cookie exists, reload configs from the cookie
             var cookie = this.Request.GetToastmastersCookie();
-            if (cookie == null)
-            {
-                _agendaConfig = new AgendaConfig(true);
-                _clubConfig = new Club(true);
-            }
-            else
+            if (cookie != null)
             {
                 var configs = cookie.AsConfig();
                 _agendaConfig = configs.AgendaConfig;
                 _clubConfig = configs.ClubConfig;
             }
-        }
 
+            if (_agendaConfig == null)
+                _agendaConfig = new Agenda.Builders.AgendaConfigBuilder().Defaults().Build();
+
+            if (_clubConfig == null)
+                _clubConfig = new Agenda.Builders.ClubBuilder().Defaults().Build();
+
+            if (_clubConfig.Officers == null)
+                _clubConfig.Officers = new Agenda.Builders.ClubOfficerBuilder().Defaults().Build();
+        }
 
     }
 }

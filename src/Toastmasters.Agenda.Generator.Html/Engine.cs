@@ -67,7 +67,7 @@ namespace Toastmasters.Agenda.Generator.Html
             DateTime tableTopics = speech1.AddMinutes(speechMinutes);
 
             DateTime minBackend = meeting.MeetingEndDateTime.AddMinutes(-backendMinutes);
-            DateTime minTableTopics = tableTopics.AddMinutes(config.MinTableTopicMinutes);
+            DateTime minTableTopics = tableTopics.AddMinutes(config.MinTableTopicsMinutes);
             DateTime maxTableTopics = tableTopics.AddMinutes(config.MaxTableTopicsMinutes);
 
             DateTime evaluations = DetermineTableTopicsEnd(minBackend, minTableTopics, maxTableTopics);

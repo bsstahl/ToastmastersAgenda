@@ -25,7 +25,7 @@ namespace CreateConfig
             agendaConfig.MentorMinutes = 3;
 
             agendaConfig.MinClubBusinessMinutes = 5;
-            agendaConfig.MinTableTopicMinutes = 5;
+            agendaConfig.MinTableTopicsMinutes = 5;
             agendaConfig.MaxTableTopicsMinutes = 15;
 
             #endregion
