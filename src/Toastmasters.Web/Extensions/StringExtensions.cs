@@ -20,27 +20,5 @@ namespace Toastmasters.Web.Extensions
             return System.Text.Encoding.UTF8.GetString(base64Bytes);
         }
 
-        public static Config AsConfig(this string jsonConfig)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<Config>(jsonConfig);
-        }
-
-        public static (bool, string) TryParseConfig(this string jsonConfig)
-        {
-            bool result = false;
-            string errorMessage = string.Empty;
-            try
-            {
-                var config = jsonConfig.AsConfig();
-                result = true;
-            }
-            catch (Exception ex)
-            {
-                errorMessage = ex.Message;
-                result = false;
-            }
-
-            return (result, errorMessage);
-        }
     }
 }

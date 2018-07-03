@@ -14,6 +14,7 @@ namespace Toastmasters.Web.Controllers
         public ActionResult Index(string errorMessage = "")
         {
             ViewData["ErrorMessage"] = errorMessage;
+            ViewData["ConfigJson"] = this.HttpContext.Request.GetToastmastersCookie();
             return View();
         }
 
@@ -28,7 +29,7 @@ namespace Toastmasters.Web.Controllers
                 var (parseResult, errorMessage) = config.TryParseConfig();
                 if (parseResult)
                 {
-                    this.Response.AddToastmastersCookie(config);
+                    this.HttpContext.Items["NewCookieValue"] = config;
                     return RedirectToAction("Index", "Agenda");
                 }
                 else

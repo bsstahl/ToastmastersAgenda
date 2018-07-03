@@ -60,9 +60,6 @@ namespace Toastmasters.Web.Controllers
 
             if (_clubConfig == null)
                 _clubConfig = new Agenda.Builders.ClubBuilder().Defaults().Build();
-
-            if (_clubConfig.Officers == null)
-                _clubConfig.Officers = new Agenda.Builders.ClubOfficerBuilder().Defaults().Build();
         }
 
     }

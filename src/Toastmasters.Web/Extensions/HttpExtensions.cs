@@ -17,6 +17,20 @@ namespace Toastmasters.Web.Extensions
             response.Cookies.Append(_cookieName, base64, cookie);
         }
 
+        public static void AddToastmastersCookie(this HttpRequest request, string json)
+        {
+            var originalCookies = request.Cookies.ToList();
+            var updatedCookies = new System.Collections.Generic.Dictionary<string, string>();
+
+            foreach (var cookie in originalCookies)
+                if (cookie.Key != _cookieName)
+                    updatedCookies.Add(cookie.Key, cookie.Value);
+
+            updatedCookies.Add(_cookieName, json.ToBase64());
+
+            request.Cookies = new Microsoft.AspNetCore.Http.Internal.RequestCookieCollection(updatedCookies);
+        }
+
         public static string GetToastmastersCookie(this HttpRequest request)
         {
             var base64 = request.Cookies[_cookieName];

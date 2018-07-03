@@ -38,6 +38,7 @@ namespace Toastmasters.Web
             }
 
             app.UseStaticFiles();
+            app.UseValidateToastmasterCookie();
 
             app.UseMvc(routes =>
             {
@@ -46,5 +47,6 @@ namespace Toastmasters.Web
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
+
     }
 }

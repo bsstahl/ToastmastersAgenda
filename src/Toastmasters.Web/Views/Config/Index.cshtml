@@ -10,7 +10,7 @@
     <div class="col-md-6">
         <form asp-action="Create">
             <div class="form-group">
-                <div><textarea name="config" cols="60" rows="10"></textarea></div>
+                <div><textarea name="config" cols="60" rows="10">@ViewData["ConfigJson"]</textarea></div>
                 <div><input type="submit" value="Store" class="btn btn-default" /></div>
             </div>
         </form>
