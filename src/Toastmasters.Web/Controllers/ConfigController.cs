@@ -22,7 +22,7 @@ namespace Toastmasters.Web.Controllers
             return View(new Models.ConfigViewModel(config));
         }
 
-        // POST: Config/Create
+        // POST: Config/Create - Postback from the Json config form
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(string config)
@@ -48,15 +48,19 @@ namespace Toastmasters.Web.Controllers
             }
         }
 
-        // POST: Config/Create
+        // POST: Config/Create - Postback from the individual items form
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Models.ConfigViewModel config)
         {
-            // TODO: Validate model
-
-            this.HttpContext.Items["NewCookieValue"] = config.AsConfig().AsJson();
-            return RedirectToAction("Index");
+            // Validate model
+            if (!this.ModelState.IsValid)
+                return RedirectToAction("Index", new { configModel = config, configJson = "", errorMessage = "Unable to validate data" });
+            else
+            {
+                this.HttpContext.Items["NewCookieValue"] = config.AsConfig().AsJson();
+                return RedirectToAction("Index");
+            }
         }
 
     }

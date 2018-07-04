@@ -11,23 +11,27 @@
     <div class="col-md-6">
         <form asp-action="Edit">
             <div class="form-group">
-                <table>
+                <input asp-for="@Model.Verson" />
 
+                <table>
                     <tr><td colspan="2"><h4>Agenda Configuration</h4></td></tr>
 
                     <tr>
-                        <td><label for="@Model.MeetingDateFormat">Meeting Date Format:</label></td>
-                        <td><input asp-for="@Model.MeetingDateFormat" /></td>
+                        <td width="30%"><label for="@Model.MeetingDateFormat">Meeting Date Format:</label></td>
+                        <td width="50%"><input asp-for="@Model.MeetingDateFormat" /></td>
+                        <td width="20%"><span asp-validation-for="@Model.MeetingDateFormat" class="text-danger"></span></td>
                     </tr>
 
                     <tr>
                         <td><label for="@Model.AgendaTimeFormat">Meeting Time Format:</label></td>
                         <td><input asp-for="@Model.MeetingTimeFormat" /></td>
+                        <td><span asp-validation-for="@Model.MeetingTimeFormat" class="text-danger"></span></td>
                     </tr>
 
                     <tr>
                         <td><label for="@Model.AgendaTimeFormat">Agenda Time Format:</label></td>
                         <td><input asp-for="@Model.AgendaTimeFormat" /></td>
+                        <td><span asp-validation-for="@Model.AgendaTimeFormat" class="text-danger"></span></td>
                     </tr>
 
                     <tr><td colspan="2">&nbsp;</td></tr>
@@ -35,31 +39,37 @@
                     <tr>
                         <td><label for="@Model.PresidingOfficerIntroMinutes">Presiding Officer Intro Minutes:</label></td>
                         <td><input asp-for="@Model.PresidingOfficerIntroMinutes" /></td>
+                        <td><span asp-validation-for="@Model.PresidingOfficerIntroMinutes" class="text-danger"></span></td>
                     </tr>
 
                     <tr>
                         <td><label for="@Model.ToastmasterIntroMinutes">Toastmaster Intro Minutes:</label></td>
                         <td><input asp-for="@Model.ToastmasterIntroMinutes" /></td>
+                        <td><span asp-validation-for="@Model.ToastmasterIntroMinutes" class="text-danger"></span></td>
                     </tr>
 
                     <tr>
                         <td><label for="@Model.EvaluationTimeMinutes">Evaluation Minutes:</label></td>
                         <td><input asp-for="@Model.EvaluationTimeMinutes" /></td>
+                        <td><span asp-validation-for="@Model.EvaluationTimeMinutes" class="text-danger"></span></td>
                     </tr>
 
                     <tr>
                         <td><label for="@Model.FunctionaryReportMinutes">Functionary Report Minutes:</label></td>
                         <td><input asp-for="@Model.FunctionaryReportMinutes" /></td>
+                        <td><span asp-validation-for="@Model.FunctionaryReportMinutes" class="text-danger"></span></td>
                     </tr>
 
                     <tr>
                         <td><label for="@Model.ListenerMinutes">Listener Minutes:</label></td>
                         <td><input asp-for="@Model.ListenerMinutes" /></td>
+                        <td><span asp-validation-for="@Model.ListenerMinutes" class="text-danger"></span></td>
                     </tr>
 
                     <tr>
                         <td><label for="@Model.MentorMinutes">Mentor Minutes:</label></td>
                         <td><input asp-for="@Model.MentorMinutes" /></td>
+                        <td><span asp-validation-for="@Model.MentorMinutes" class="text-danger"></span></td>
                     </tr>
 
                     <tr><td colspan="2">&nbsp;</td></tr>
@@ -67,16 +77,19 @@
                     <tr>
                         <td><label for="@Model.MinClubBusinessMinutes">Min Club Business Minutes:</label></td>
                         <td><input asp-for="@Model.MinClubBusinessMinutes" /></td>
+                        <td><span asp-validation-for="@Model.MinClubBusinessMinutes" class="text-danger"></span></td>
                     </tr>
 
                     <tr>
                         <td><label for="@Model.MinTableTopicsMinutes">Min Table Topics Minutes:</label></td>
                         <td><input asp-for="@Model.MinTableTopicsMinutes" /></td>
+                        <td><span asp-validation-for="@Model.MinTableTopicsMinutes" class="text-danger"></span></td>
                     </tr>
 
                     <tr>
                         <td><label for="@Model.MaxTableTopicsMinutes">Max Table Topics Minutes:</label></td>
                         <td><input asp-for="@Model.MaxTableTopicsMinutes" /></td>
+                        <td><span asp-validation-for="@Model.MaxTableTopicsMinutes" class="text-danger"></span></td>
                     </tr>
 
                     <tr><td colspan="2"><h4>Club Configuration</h4></td></tr>
@@ -84,11 +97,13 @@
                     <tr>
                         <td><label for="@Model.ClubName">Club Name:</label></td>
                         <td><input asp-for="@Model.ClubName" /></td>
+                        <td><span asp-validation-for="@Model.ClubName" class="text-danger"></span></td>
                     </tr>
 
                     <tr>
                         <td><label for="@Model.ClubNumber">Club Number:</label></td>
                         <td><input asp-for="@Model.ClubNumber" /></td>
+                        <td><span asp-validation-for="@Model.ClubNumber" class="text-danger"></span></td>
                     </tr>
 
                     <tr><td colspan="2">&nbsp;</td></tr>
@@ -96,16 +111,19 @@
                     <tr>
                         <td><label for="@Model.MeetingDayOfWeek">Meeting Day of Week:</label></td>
                         <td><input asp-for="@Model.MeetingDayOfWeek" /></td>
+                        <td><span asp-validation-for="@Model.MeetingDayOfWeek" class="text-danger"></span></td>
                     </tr>
 
                     <tr>
                         <td><label for="@Model.MeetingStartTime">Meeting Start Time:</label></td>
                         <td><input asp-for="@Model.MeetingStartTime" /></td>
+                        <td><span asp-validation-for="@Model.MeetingStartTime" class="text-danger"></span></td>
                     </tr>
 
                     <tr>
                         <td><label for="@Model.MeetingLengthMinutes">Meeting Length Minutes:</label></td>
                         <td><input asp-for="@Model.MeetingLengthMinutes" /></td>
+                        <td><span asp-validation-for="@Model.MeetingLengthMinutes" class="text-danger"></span></td>
                     </tr>
 
                     <tr><td colspan="2">&nbsp;</td></tr>
@@ -113,6 +131,7 @@
                     <tr>
                         <td><label for="@Model.MeetingMessage">Meeting Message:</label></td>
                         <td><input asp-for="@Model.MeetingMessage" /></td>
+                        <td><span asp-validation-for="@Model.MeetingMessage" class="text-danger"></span></td>
                     </tr>
 
                     <tr><td colspan="2">&nbsp;</td></tr>
@@ -120,16 +139,19 @@
                     <tr>
                         <td><label for="@Model.WebsiteUrl">Website Url:</label></td>
                         <td><input asp-for="@Model.WebsiteUrl" /></td>
+                        <td><span asp-validation-for="@Model.WebsiteUrl" class="text-danger"></span></td>
                     </tr>
 
                     <tr>
                         <td><label for="@Model.EmailAddress">Club Email:</label></td>
                         <td><input asp-for="@Model.EmailAddress" /></td>
+                        <td><span asp-validation-for="@Model.EmailAddress" class="text-danger"></span></td>
                     </tr>
 
                     <tr>
                         <td><label for="@Model.SlackChannel">Club Slack Channel:</label></td>
                         <td><input asp-for="@Model.SlackChannel" /></td>
+                        <td><span asp-validation-for="@Model.SlackChannel" class="text-danger"></span></td>
                     </tr>
 
                     <tr><td colspan="2">&nbsp;</td></tr>
@@ -137,6 +159,7 @@
                     <tr>
                         <td><label for="@Model.MissionStatement">Club Mission:</label></td>
                         <td><textarea rows="10" asp-for="@Model.MissionStatement"></textarea></td>
+                        <td><span asp-validation-for="@Model.MissionStatement" class="text-danger"></span></td>
                     </tr>
 
                     <tr><td colspan="2">&nbsp;</td></tr>
@@ -144,36 +167,43 @@
                     <tr>
                         <td><label for="@Model.PresidentName">Club President:</label></td>
                         <td><input asp-for="@Model.PresidentName" /></td>
+                        <td><span asp-validation-for="@Model.PresidentName" class="text-danger"></span></td>
                     </tr>
 
                     <tr>
                         <td><label for="@Model.VPEducationName">VP Education:</label></td>
                         <td><input asp-for="@Model.VPEducationName" /></td>
+                        <td><span asp-validation-for="@Model.VPEducationName" class="text-danger"></span></td>
                     </tr>
 
                     <tr>
                         <td><label for="@Model.VPMembershipName">VP Membership:</label></td>
                         <td><input asp-for="@Model.VPMembershipName" /></td>
+                        <td><span asp-validation-for="@Model.VPMembershipName" class="text-danger"></span></td>
                     </tr>
 
                     <tr>
                         <td><label for="@Model.VPPublicRelationsName">VP Public Relations:</label></td>
                         <td><input asp-for="@Model.VPPublicRelationsName" /></td>
+                        <td><span asp-validation-for="@Model.VPPublicRelationsName" class="text-danger"></span></td>
                     </tr>
 
                     <tr>
                         <td><label for="@Model.SecretaryName">Club Secretary:</label></td>
                         <td><input asp-for="@Model.SecretaryName" /></td>
+                        <td><span asp-validation-for="@Model.SecretaryName" class="text-danger"></span></td>
                     </tr>
 
                     <tr>
                         <td><label for="@Model.TreasurerName">Club Treasurer:</label></td>
                         <td><input asp-for="@Model.TreasurerName" /></td>
+                        <td><span asp-validation-for="@Model.TreasurerName" class="text-danger"></span></td>
                     </tr>
 
                     <tr>
                         <td><label for="@Model.SeargeantAtArmsName">Seargeant-at-Arms:</label></td>
                         <td><input asp-for="@Model.SeargeantAtArmsName" /></td>
+                        <td><span asp-validation-for="@Model.SeargeantAtArmsName" class="text-danger"></span></td>
                     </tr>
 
                 </table>

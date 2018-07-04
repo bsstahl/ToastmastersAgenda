@@ -1,8 +1,11 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using Toastmasters.Agenda.Entities;
+using Toastmasters.Agenda.Extensions;
 
 namespace Toastmasters.Web.Models
 {
@@ -14,6 +17,7 @@ namespace Toastmasters.Web.Models
             Load(config);
         }
 
+        [HiddenInput]
         public Single Verson { get; set; }
 
         #region Agenda Config
@@ -22,34 +26,51 @@ namespace Toastmasters.Web.Models
         public string AgendaTimeFormat { get; set; }
         public string MeetingDateFormat { get; set; }
 
+        [Range(0, 60)]
         public int PresidingOfficerIntroMinutes { get; set; }
+        [Range(0, 60)]
         public int ToastmasterIntroMinutes { get; set; }
+        [Range(0, 60)]
         public int EvaluationTimeMinutes { get; set; }
+        [Range(0, 60)]
         public int FunctionaryReportMinutes { get; set; }
+        [Range(0, 60)]
         public int ListenerMinutes { get; set; }
+        [Range(0, 60)]
         public int MentorMinutes { get; set; }
-
+        [Range(0, 60)]
         public int MinClubBusinessMinutes { get; set; }
 
+        [Range(0, 60)]
         public int MinTableTopicsMinutes { get; set; }
+        [Range(0, 60)]
         public int MaxTableTopicsMinutes { get; set; }
 
         #endregion
 
         #region Club Config
 
+        [Required]
         public string ClubName { get; set; }
         public string ClubNumber { get; set; }
 
         public DayOfWeek MeetingDayOfWeek { get; set; }
-        public Single MeetingStartTime { get; set; }
+
+        [DataType(DataType.Time)]
+        public DateTime MeetingStartTime { get; set; }
+
+        [Range(10, 120)]
         public int MeetingLengthMinutes { get; set; }
 
 
         public string MeetingMessage { get; set; }
 
+        [Url(ErrorMessage = "The Website URL must be a fully-qualified http or https address.")]
         public string WebsiteUrl { get; set; }
+
+        [EmailAddress]
         public string EmailAddress { get; set; }
+
         public string SlackChannel { get; set; }
 
         public string MissionStatement { get; set; }
@@ -94,7 +115,7 @@ namespace Toastmasters.Web.Models
             this.ClubNumber = config.ClubConfig.Number;
 
             this.MeetingDayOfWeek = config.ClubConfig.MeetingDayOfWeek;
-            this.MeetingStartTime = config.ClubConfig.MeetingStartTime;
+            this.MeetingStartTime = config.ClubConfig.MeetingStartTime.AsTime();
             this.MeetingLengthMinutes = config.ClubConfig.MeetingLengthMinutes;
 
             this.MeetingMessage = config.ClubConfig.MeetingMessage;
@@ -107,7 +128,7 @@ namespace Toastmasters.Web.Models
 
             // Officers Config
             this.PresidentName = config.ClubConfig.Officers.PresidentName;
-            this.VPEducationName  = config.ClubConfig.Officers.VPEducationName;
+            this.VPEducationName = config.ClubConfig.Officers.VPEducationName;
             this.VPMembershipName = config.ClubConfig.Officers.VPMembershipName;
             this.VPPublicRelationsName = config.ClubConfig.Officers.VPPublicRelationsName;
             this.SecretaryName = config.ClubConfig.Officers.SecretaryName;
@@ -140,7 +161,7 @@ namespace Toastmasters.Web.Models
                     MeetingDayOfWeek = this.MeetingDayOfWeek,
                     MeetingLengthMinutes = this.MeetingLengthMinutes,
                     MeetingMessage = this.MeetingMessage,
-                    MeetingStartTime = this.MeetingStartTime,
+                    MeetingStartTime = this.MeetingStartTime.ToHours(),
                     MissionStatement = this.MissionStatement,
                     Name = this.ClubName,
                     Number = this.ClubNumber,
