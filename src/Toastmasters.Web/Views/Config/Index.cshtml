@@ -1,16 +1,193 @@
-﻿@{
+﻿@model ConfigViewModel
+@{
     ViewData["Title"] = "Configuration";
 }
 
 <h2>Configuration</h2>
-<h4>Store Config in Browser</h4>
+<h3>Store Config in Browser</h3>
 <hr />
 <h5 class="alert-danger">@ViewData["ErrorMessage"]</h5>
 <div class="row">
     <div class="col-md-6">
+        <form asp-action="Edit">
+            <div class="form-group">
+                <table>
+
+                    <tr><td colspan="2"><h4>Agenda Configuration</h4></td></tr>
+
+                    <tr>
+                        <td><label for="MeetingDateFormat">Meeting Date Format:</label></td>
+                        <td><input asp-for="@Model.AgendaConfig.MeetingDateFormat" /></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="AgendaTimeFormat">Meeting Time Format:</label></td>
+                        <td><input asp-for="@Model.AgendaConfig.MeetingTimeFormat" /></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="AgendaTimeFormat">Agenda Time Format:</label></td>
+                        <td><input asp-for="@Model.AgendaConfig.AgendaTimeFormat" /></td>
+                    </tr>
+
+                    <tr><td colspan="2">&nbsp;</td></tr>
+
+                    <tr>
+                        <td><label for="PresidingOfficerIntroMinutes">Presiding Officer Intro Minutes:</label></td>
+                        <td><input asp-for="@Model.AgendaConfig.PresidingOfficerIntroMinutes" /></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="ToastmasterIntroMinutes">Toastmaster Intro Minutes:</label></td>
+                        <td><input asp-for="@Model.AgendaConfig.ToastmasterIntroMinutes" /></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="EvaluationTimeMinutes">Evaluation Minutes:</label></td>
+                        <td><input asp-for="@Model.AgendaConfig.EvaluationTimeMinutes" /></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="FunctionaryReportMinutes">Functionary Report Minutes:</label></td>
+                        <td><input asp-for="@Model.AgendaConfig.FunctionaryReportMinutes" /></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="ListenerMinutes">Listener Minutes:</label></td>
+                        <td><input asp-for="@Model.AgendaConfig.ListenerMinutes" /></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="MentorMinutes">Mentor Minutes:</label></td>
+                        <td><input asp-for="@Model.AgendaConfig.MentorMinutes" /></td>
+                    </tr>
+
+                    <tr><td colspan="2">&nbsp;</td></tr>
+
+                    <tr>
+                        <td><label for="MinClubBusinessMinutes">Min Club Business Minutes:</label></td>
+                        <td><input asp-for="@Model.AgendaConfig.MinClubBusinessMinutes" /></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="MinTableTopicsMinutes">Min Table Topics Minutes:</label></td>
+                        <td><input asp-for="@Model.AgendaConfig.MinTableTopicsMinutes" /></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="MaxTableTopicsMinutes">Max Table Topics Minutes:</label></td>
+                        <td><input asp-for="@Model.AgendaConfig.MaxTableTopicsMinutes" /></td>
+                    </tr>
+
+                    <tr><td colspan="2"><h4>Club Configuration</h4></td></tr>
+
+                    <tr>
+                        <td><label for="Name">Club Name:</label></td>
+                        <td><input asp-for="@Model.ClubConfig.Name" /></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="ClubNumber">Club Number:</label></td>
+                        <td><input asp-for="@Model.ClubConfig.Number" /></td>
+                    </tr>
+
+                    <tr><td colspan="2">&nbsp;</td></tr>
+
+                    <tr>
+                        <td><label for="MeetingDayOfWeek">Meeting Day of Week:</label></td>
+                        <td><input asp-for="@Model.ClubConfig.MeetingDayOfWeek" /></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="MeetingStartTime">Meeting Start Time:</label></td>
+                        <td><input asp-for="@Model.ClubConfig.MeetingStartTime" /></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="MeetingLengthMinutes">Meeting Length Minutes:</label></td>
+                        <td><input asp-for="@Model.ClubConfig.MeetingLengthMinutes" /></td>
+                    </tr>
+
+                    <tr><td colspan="2">&nbsp;</td></tr>
+
+                    <tr>
+                        <td><label for="MeetingMessage">Meeting Message:</label></td>
+                        <td><input asp-for="@Model.ClubConfig.MeetingMessage" /></td>
+                    </tr>
+
+                    <tr><td colspan="2">&nbsp;</td></tr>
+
+                    <tr>
+                        <td><label for="WebsiteUrl">Website Url:</label></td>
+                        <td><input asp-for="@Model.ClubConfig.WebsiteUrl" /></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="EmailAddress">Club Email:</label></td>
+                        <td><input asp-for="@Model.ClubConfig.EmailAddress" /></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="SlackChannel">Club Slack Channel:</label></td>
+                        <td><input asp-for="@Model.ClubConfig.SlackChannel" /></td>
+                    </tr>
+
+                    <tr><td colspan="2">&nbsp;</td></tr>
+
+                    <tr>
+                        <td><label for="MissionStatement">Club Mission:</label></td>
+                        <td><textarea rows="10" asp-for="@Model.ClubConfig.MissionStatement"></textarea></td>
+                    </tr>
+
+                    <tr><td colspan="2">&nbsp;</td></tr>
+
+                    <tr>
+                        <td><label for="PresidentName">Club President:</label></td>
+                        <td><input asp-for="@Model.ClubConfig.Officers.PresidentName" /></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="VPEducationName">VP Education:</label></td>
+                        <td><input asp-for="@Model.ClubConfig.Officers.VPEducationName" /></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="VPMembershipName">VP Membership:</label></td>
+                        <td><input asp-for="@Model.ClubConfig.Officers.VPMembershipName" /></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="VPPublicRelationsName">VP Public Relations:</label></td>
+                        <td><input asp-for="@Model.ClubConfig.Officers.VPPublicRelationsName" /></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="SecretaryName">Club Secretary:</label></td>
+                        <td><input asp-for="@Model.ClubConfig.Officers.SecretaryName" /></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="TreasurerName">Club Treasurer:</label></td>
+                        <td><input asp-for="@Model.ClubConfig.Officers.TreasurerName" /></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="SeargeantAtArmsName">Seargeant-at-Arms:</label></td>
+                        <td><input asp-for="@Model.ClubConfig.Officers.SeargeantAtArmsName" /></td>
+                    </tr>
+
+                </table>
+
+                <div><input type="submit" value="Update" class="btn btn-default" /></div>
+            </div>
+        </form>
+    </div>
+
+    <div class="col-md-6">
         <form asp-action="Create">
             <div class="form-group">
-                <div><textarea name="config" cols="60" rows="10">@ViewData["ConfigJson"]</textarea></div>
+                <h4>Configuration File</h4>
+                <div><textarea name="config" cols="80" rows="40">@ViewData["ConfigJson"]</textarea></div>
                 <div><input type="submit" value="Store" class="btn btn-default" /></div>
             </div>
         </form>

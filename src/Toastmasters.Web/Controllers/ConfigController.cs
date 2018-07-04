@@ -13,9 +13,13 @@ namespace Toastmasters.Web.Controllers
         // GET: Config
         public ActionResult Index(string errorMessage = "")
         {
+            var configJson = this.HttpContext.Request.GetToastmastersCookie();
+
             ViewData["ErrorMessage"] = errorMessage;
-            ViewData["ConfigJson"] = this.HttpContext.Request.GetToastmastersCookie();
-            return View();
+            ViewData["ConfigJson"] = configJson;
+
+            var config = configJson.AsConfig();
+            return View(new Models.ConfigViewModel(config));
         }
 
         // POST: Config/Create
@@ -25,7 +29,7 @@ namespace Toastmasters.Web.Controllers
         {
             try
             {
-                // TODO: Save cookie to browser
+                // Save cookie to browser
                 var (parseResult, errorMessage) = config.TryParseConfig();
                 if (parseResult)
                 {
@@ -44,12 +48,15 @@ namespace Toastmasters.Web.Controllers
             }
         }
 
-        // GET: Config/Delete
-        // Removes the cookie from the browser
-        // Is this really the right thing? Should it be a return to default? Should it even exist?
-        public ActionResult Delete()
+        // POST: Config/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(Models.ConfigViewModel config)
         {
-            return View(); // TODO: Implement
+            // TODO: Validate model
+
+            this.HttpContext.Items["NewCookieValue"] = config.AsConfig().AsJson();
+            return RedirectToAction("Index");
         }
 
     }
