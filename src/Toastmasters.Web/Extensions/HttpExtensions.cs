@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace Toastmasters.Web.Extensions
@@ -22,16 +23,19 @@ namespace Toastmasters.Web.Extensions
 
         public static void AddToastmastersCookie(this HttpRequest request, string json)
         {
-            var originalCookies = request.Cookies.ToList();
-            var updatedCookies = new System.Collections.Generic.Dictionary<string, string>();
+            request.Cookies = request.Cookies.AddCookie(_cookieName, json.ToBase64());
+        }
+
+        private static IRequestCookieCollection AddCookie(this IRequestCookieCollection originalCookies, string name, String value)
+        {
+            var updatedCookies = new System.Collections.Generic.List<KeyValuePair<string, string>>();
 
             foreach (var cookie in originalCookies)
                 if (cookie.Key != _cookieName)
-                    updatedCookies.Add(cookie.Key, cookie.Value);
+                    updatedCookies.Add(new KeyValuePair<string, string>(cookie.Key, cookie.Value));
+            updatedCookies.Add(new KeyValuePair<string, string>(name, value));
 
-            updatedCookies.Add(_cookieName, json.ToBase64());
-
-            request.Cookies = new Microsoft.AspNetCore.Http.Internal.RequestCookieCollection(updatedCookies);
+            return new ToastmastersCookieCollection(updatedCookies);
         }
 
         public static string GetToastmastersCookie(this HttpRequest request)
@@ -42,5 +46,6 @@ namespace Toastmasters.Web.Extensions
                 result = base64.FromBase64();
             return result;
         }
+
     }
 }
