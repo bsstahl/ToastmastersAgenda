@@ -19,14 +19,14 @@ The *.Net Standard 2.0* library found at **/src/Toastmasters.Agenda/** holds the
 The *.Net Standard 2.0* library found at **/src/Toastmasters.Agenda.Generator.Html/** holds an implementation of the *Toastmasters.Agenda.Interfaces.IAgendaGenerator* interface. This implementation creates the agenda in an HTML5 compliant document.  The document is completely self contained. That is, all style, content and images are stored inside the file so that it can easily be passed around, simply by sending the resulting file to another user.
 
 ### Website
-The project website can be found under **src/Toastmasters.Web**. It is an ASP.NET Core MVC 2.0 site that collects the required data and then utilizes the *Toastmasters.Agenda.Generator.Html.Engine* to generate and present the agenda.  This project also allows the user to modify configuration information to be stored in the user's web browser.
+The project website can be found under **src/Toastmasters.Web**. It is an ASP.NET Core MVC site that collects the required data and then utilizes the *Toastmasters.Agenda.Generator.Html.Engine* to generate and present the agenda.  This project also allows the user to modify configuration information to be stored in the user's web browser.
 
 ### Tools
 There are currently 2 tools projects in the repository:
 
 1) Agenda - A .NET Core executable that can generate agendas locally using the specified *IAgendaGenerator* implementation. This is mostly used for local testing.
 
-1) CreateConfig - A .NET Core executable that can generate configuration files locally. This should not be needed once the configuration aspects of the website have been built.
+1) CreateConfig - A .NET Core executable that can generate configuration files locally. This should no longer be needed since the configuration aspects of the website have been built out and are functional.
 
 ## Feature Requests
 
